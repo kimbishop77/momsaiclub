@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="fresh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson: Dinner on Autopilot — Moms AI Club</title>
+<style>
+  [data-theme="fresh"] {
+    --bg: #FAFCFC; --surface: #FFFFFF; --ink: #14343B; --muted: #55707A;
+    --primary: #0F8B8D; --primary-dark: #0B6D6F; --accent: #FFC94D;
+    --accent-tint: #FFF3D6; --tint: #E4F2F2; --border: #DCE8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.7;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.25; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+
+  nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1060px; margin: 0 auto; }
+  .logo { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+  .nav-inner a.back { color: var(--muted); text-decoration: none; font-size: .92rem; }
+  .nav-inner a.back:hover { color: var(--primary); }
+
+  .lesson-head { padding: 56px 0 10px; }
+  .lesson-tag {
+    display: inline-block; background: var(--accent); color: var(--ink);
+    padding: 5px 14px; border-radius: 999px; font-size: .8rem; font-weight: 700; margin-bottom: 16px;
+  }
+  .pdf-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-left: 10px;
+    color: var(--primary); text-decoration: none; font-size: .88rem; font-weight: 600;
+    border: 1.5px solid var(--primary); border-radius: 999px; padding: 4px 14px;
+    vertical-align: 2px;
+  }
+  .pdf-link:hover { background: var(--tint); }
+  .pdf-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin-bottom: 12px; }
+  .meta { color: var(--muted); font-size: .92rem; margin-bottom: 8px; }
+
+  h2 { font-size: 1.45rem; margin: 44px 0 12px; }
+  p { margin-bottom: 14px; }
+  .lede { font-size: 1.1rem; color: var(--muted); }
+
+  .step {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 26px; margin: 18px 0;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%; background: var(--primary);
+    color: #fff; font-weight: 700; font-size: .95rem; margin-right: 10px; vertical-align: middle;
+  }
+  .step h3 { display: inline; font-size: 1.15rem; vertical-align: middle; }
+  .step p { margin-top: 12px; }
+  .step p:last-child { margin-bottom: 0; }
+
+  .promptbox {
+    background: var(--ink); color: #EAF4F4; border-radius: 14px;
+    padding: 20px 22px; margin: 16px 0; font-size: .97rem; position: relative;
+  }
+  .promptbox .label {
+    position: absolute; top: -11px; left: 18px; background: var(--accent);
+    color: var(--ink); font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+  }
+  .copy-btn {
+    margin-top: 12px; background: var(--primary); color: #fff; border: none;
+    padding: 8px 18px; border-radius: 999px; font-size: .85rem; font-weight: 600; cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--primary-dark); }
+
+  .tipbox {
+    background: var(--accent-tint); border-radius: 12px; padding: 16px 20px;
+    margin: 16px 0; font-size: .95rem;
+  }
+  .tipbox strong { color: var(--primary-dark); }
+
+  ul { margin: 0 0 14px 22px; }
+  li { margin-bottom: 8px; }
+
+  .screenshot-slot {
+    border: 2px dashed var(--border); border-radius: 12px; padding: 30px;
+    text-align: center; color: var(--muted); font-size: .88rem; margin: 14px 0;
+    background: var(--surface);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Moms AI Club</a>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+
+<div class="lesson-head">
+  <span class="lesson-tag">Member Lesson · 10 minutes</span><a class="pdf-link" href="lesson-dinner-autopilot.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Print / Download PDF</a>
+  <h1>Dinner on Autopilot</h1>
+  <p class="meta">What you'll build: a weekly meal plan and one grocery list — made in less time than it takes to preheat the oven.</p>
+</div>
+
+<p class="lede">"What's for dinner?" is the question that never stops. This lesson doesn't make it stop either — but it makes answering it take 5 minutes on Sunday instead of 30 stressful minutes every night.</p>
+
+<h2>The steps</h2>
+
+<div class="step">
+  <span class="step-num">1</span><h3>Start with the fridge dump</h3>
+  <p>Tonight's problem first. Open your fridge, tell Claude what you see:</p>
+  <div class="promptbox">
+    <span class="label">COPY THIS PROMPT</span>
+    <span id="p1">Here's what I have: [list what's in your fridge and pantry — rough is fine]. Give me 3 dinner ideas I can make in under 30 minutes using mostly this. My kids are [ages].</span>
+    <br><button class="copy-btn" onclick="copyText('p1', this)">Copy prompt</button>
+  </div>
+</div>
+
+<div class="step">
+  <span class="step-num">2</span><h3>Then the weekly plan</h3>
+  <p>This is the big one. Change the details to fit your family:</p>
+  <div class="promptbox">
+    <span class="label">COPY THIS PROMPT</span>
+    <span id="p2">Plan 5 weeknight dinners for a family of 4. One kid won't eat anything spicy. We're busy Tuesday, so that night needs to be 15 minutes max. Keep it budget-friendly. Then make me ONE grocery list for the whole week, sorted by store section.</span>
+    <br><button class="copy-btn" onclick="copyText('p2', this)">Copy prompt</button>
+  </div>
+  <p>Don't like Wednesday? Say <em>"swap Wednesday for something with pasta."</em> The list updates too.</p>
+</div>
+
+<div class="step">
+  <span class="step-num">3</span><h3>Make it a Sunday habit</h3>
+  <p>Save your weekly prompt somewhere handy (Notes app works). Every Sunday: paste, tweak, done. After a few weeks, tell Claude what your family actually ate and loved — the plans get smarter.</p>
+</div>
+
+<h2>Make it yours</h2>
+<ul>
+  <li><strong>"Make Monday a slow-cooker meal I can start at 8am."</strong></li>
+  <li><strong>"We had chicken tonight and there's a lot left. What can tomorrow's dinner be?"</strong></li>
+  <li><strong>"Give me a 2-week rotation so we're not eating tacos every Tuesday forever."</strong></li>
+</ul>
+
+<div class="tipbox"><strong>Real talk:</strong> the plan only works if it matches your actual life. Tell Claude the truth — the picky eater, the budget, the night you get home at 6:45. The more honest the prompt, the better the week.</div>
+
+<p style="margin-top:40px"><strong>That's the whole lesson.</strong> One question, answered for the whole week. 💛</p>
+
+</div>
+
+<script>
+  function copyText(id, btn) {
+    navigator.clipboard.writeText(document.getElementById(id).innerText).then(function() {
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = "Copy prompt"; }, 1600);
+    });
+  }
+</script>
+
+</body>
+</html>

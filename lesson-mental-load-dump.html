@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="fresh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson: The Mental Load Dump — Moms AI Club</title>
+<style>
+  [data-theme="fresh"] {
+    --bg: #FAFCFC; --surface: #FFFFFF; --ink: #14343B; --muted: #55707A;
+    --primary: #0F8B8D; --primary-dark: #0B6D6F; --accent: #FFC94D;
+    --accent-tint: #FFF3D6; --tint: #E4F2F2; --border: #DCE8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.7;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.25; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+
+  nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1060px; margin: 0 auto; }
+  .logo { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+  .nav-inner a.back { color: var(--muted); text-decoration: none; font-size: .92rem; }
+  .nav-inner a.back:hover { color: var(--primary); }
+
+  .lesson-head { padding: 56px 0 10px; }
+  .lesson-tag {
+    display: inline-block; background: var(--accent); color: var(--ink);
+    padding: 5px 14px; border-radius: 999px; font-size: .8rem; font-weight: 700; margin-bottom: 16px;
+  }
+  .pdf-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-left: 10px;
+    color: var(--primary); text-decoration: none; font-size: .88rem; font-weight: 600;
+    border: 1.5px solid var(--primary); border-radius: 999px; padding: 4px 14px;
+    vertical-align: 2px;
+  }
+  .pdf-link:hover { background: var(--tint); }
+  .pdf-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin-bottom: 12px; }
+  .meta { color: var(--muted); font-size: .92rem; margin-bottom: 8px; }
+
+  h2 { font-size: 1.45rem; margin: 44px 0 12px; }
+  p { margin-bottom: 14px; }
+  .lede { font-size: 1.1rem; color: var(--muted); }
+
+  .step {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 26px; margin: 18px 0;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%; background: var(--primary);
+    color: #fff; font-weight: 700; font-size: .95rem; margin-right: 10px; vertical-align: middle;
+  }
+  .step h3 { display: inline; font-size: 1.15rem; vertical-align: middle; }
+  .step p { margin-top: 12px; }
+  .step p:last-child { margin-bottom: 0; }
+
+  .promptbox {
+    background: var(--ink); color: #EAF4F4; border-radius: 14px;
+    padding: 20px 22px; margin: 16px 0; font-size: .97rem; position: relative;
+  }
+  .promptbox .label {
+    position: absolute; top: -11px; left: 18px; background: var(--accent);
+    color: var(--ink); font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+  }
+  .copy-btn {
+    margin-top: 12px; background: var(--primary); color: #fff; border: none;
+    padding: 8px 18px; border-radius: 999px; font-size: .85rem; font-weight: 600; cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--primary-dark); }
+
+  .tipbox {
+    background: var(--accent-tint); border-radius: 12px; padding: 16px 20px;
+    margin: 16px 0; font-size: .95rem;
+  }
+  .tipbox strong { color: var(--primary-dark); }
+
+  ul { margin: 0 0 14px 22px; }
+  li { margin-bottom: 8px; }
+
+  .screenshot-slot {
+    border: 2px dashed var(--border); border-radius: 12px; padding: 30px;
+    text-align: center; color: var(--muted); font-size: .88rem; margin: 14px 0;
+    background: var(--surface);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Moms AI Club</a>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+
+<div class="lesson-head">
+  <span class="lesson-tag">Member Lesson · 15 minutes</span><a class="pdf-link" href="lesson-mental-load-dump.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Print / Download PDF</a>
+  <h1>The Mental Load Dump</h1>
+  <p class="meta">What you'll do: empty everything swirling in your head, and let Claude sort it into a plan you can actually follow.</p>
+</div>
+
+<p class="lede">The dentist appointment. The teacher gift. The thing you were supposed to sign. The worry you can't name. Moms carry a to-do list nobody else can see — and it's heavy. This lesson gets it out of your head.</p>
+
+<h2>The steps</h2>
+
+<div class="step">
+  <span class="step-num">1</span><h3>Dump it all — messy is the point</h3>
+  <p>Send this, then just let it pour out. No order, no punctuation rules. (Phone tip: use the little microphone on your keyboard and talk instead of type.)</p>
+  <div class="promptbox">
+    <span class="label">COPY THIS PROMPT</span>
+    <span id="p1">I'm going to dump everything on my mind. Don't fix anything yet — just listen. When I'm done, sort everything into 4 lists: To-Do This Week, Can Wait, Needs a Decision, and Just Worries.</span>
+    <br><button class="copy-btn" onclick="copyText('p1', this)">Copy prompt</button>
+  </div>
+</div>
+
+<div class="step">
+  <span class="step-num">2</span><h3>Look at the "Just Worries" list</h3>
+  <p>This list is quietly the best part. Half your mental load isn't tasks — it's worries pretending to be tasks. Seeing them named and separated is a real relief. For any worry that has an action hiding inside it, say: <em>"What's one small step for this one?"</em></p>
+</div>
+
+<div class="step">
+  <span class="step-num">3</span><h3>Turn "This Week" into a real plan</h3>
+  <div class="promptbox">
+    <span class="label">COPY THIS PROMPT</span>
+    <span id="p2">Take the To-Do This Week list and fit it into my actual week. Mornings are chaos. I have pockets of time at nap time and after 8pm. Be realistic — don't schedule 12 things in one day.</span>
+    <br><button class="copy-btn" onclick="copyText('p2', this)">Copy prompt</button>
+  </div>
+  <p>Screenshot the plan or ask Claude to make it a checklist. Done.</p>
+</div>
+
+<h2>Make it yours</h2>
+<ul>
+  <li><strong>"Which of these could my partner or kids take over? Draft the ask so it doesn't sound naggy."</strong></li>
+  <li><strong>"What on this list can I just... not do? Be honest."</strong></li>
+  <li><strong>Do it every Sunday night — it takes 10 minutes and Monday feels different.</strong></li>
+</ul>
+
+<div class="tipbox"><strong>Gentle note:</strong> this is for everyday overwhelm. If the weight feels bigger than a list — more like anxiety or depression — that deserves real support from a person, not an app. Both things can be true: use the tool, and talk to someone.</div>
+
+<p style="margin-top:40px"><strong>That's the lesson.</strong> Your head is not a filing cabinet. Stop asking it to be one. 💛</p>
+
+</div>
+
+<script>
+  function copyText(id, btn) {
+    navigator.clipboard.writeText(document.getElementById(id).innerText).then(function() {
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = "Copy prompt"; }, 1600);
+    });
+  }
+</script>
+
+</body>
+</html>
