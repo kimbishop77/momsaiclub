@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="fresh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moms AI Club — AI, explained mom-to-mom</title>
+<meta name="description" content="A friendly membership club helping moms understand and use AI in everyday life. No jargon, no hype.">
+<style>
+  /* ============================================================
+     COLOR THEMES — click the swatches on the site to compare.
+     To make one permanent, change data-theme="fresh" (top of file)
+     to data-theme="cozy", or tell Claude which one you picked.
+     ============================================================ */
+  [data-theme="fresh"] {
+    --bg: #FAFCFC;
+    --surface: #FFFFFF;
+    --ink: #14343B;
+    --muted: #55707A;
+    --primary: #0F8B8D;
+    --primary-dark: #0B6D6F;
+    --accent: #FFC94D;
+    --accent-tint: #FFF3D6;
+    --tint: #E4F2F2;
+    --border: #DCE8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    transition: background .4s, color .4s;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    transition: background .4s;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1060px; margin: 0 auto; }
+  .logo { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: .95rem; }
+  .nav-links a:hover { color: var(--primary); }
+  .btn {
+    display: inline-block; background: var(--primary); color: #fff !important;
+    padding: 10px 22px; border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: .95rem; border: none; cursor: pointer;
+    transition: background .2s;
+  }
+  .btn:hover { background: var(--primary-dark); }
+  .btn-big { padding: 14px 34px; font-size: 1.05rem; }
+  .btn-ghost {
+    background: transparent; color: var(--primary) !important;
+    border: 2px solid var(--primary);
+  }
+  .btn-ghost:hover { background: var(--tint); }
+
+  /* ---------- Hero ---------- */
+  header { padding: 84px 0 70px; text-align: center; }
+  .eyebrow {
+    display: inline-block; background: var(--accent); color: var(--ink);
+    padding: 6px 16px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+    margin-bottom: 20px;
+  }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 18px; }
+  h1 em { font-style: normal; color: var(--primary); }
+  .sub { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 32px; }
+  .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 70px 0; }
+  section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 46px; }
+  .section-head h2 { font-size: 2rem; margin-bottom: 12px; }
+  .section-head p { color: var(--muted); }
+
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+  }
+  section.alt .card { background: var(--bg); }
+  .card .icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--primary); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .card .icon svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .lesson-note svg { width: 18px; height: 18px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -3px; margin-right: 6px; }
+  .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .95rem; }
+
+  /* ---------- Four doors ---------- */
+  .doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 10px; }
+  .door {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; border-top: 5px solid var(--primary);
+  }
+  .door h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .door .tag { font-size: .82rem; color: var(--primary-dark); font-weight: 600; margin-bottom: 10px; }
+  .door ul { list-style: none; }
+  .door li { font-size: .9rem; color: var(--muted); padding: 5px 0 5px 20px; position: relative; }
+  .door li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+  .door:nth-child(even) { border-top-color: var(--accent); }
+  .lesson-note {
+    text-align: center; margin-top: 30px; font-size: .95rem; color: var(--ink);
+    background: var(--accent-tint); border-radius: 12px; padding: 14px 20px;
+    max-width: 560px; margin-left: auto; margin-right: auto;
+  }
+
+  /* ---------- About ---------- */
+  .about-grid {
+    display: grid; grid-template-columns: 280px 1fr; gap: 44px;
+    align-items: center; max-width: 860px; margin: 0 auto;
+  }
+  .about-photo img {
+    width: 100%; border-radius: 20px; display: block;
+    border: 4px solid var(--surface); box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  }
+  .about-text h2 { font-size: 2rem; margin-bottom: 14px; }
+  .about-text p { color: var(--muted); margin-bottom: 12px; }
+  .about-text .sig { font-family: Georgia, serif; font-size: 1.2rem; color: var(--primary); font-style: italic; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-photo { max-width: 260px; margin: 0 auto; }
+  }
+
+  /* ---------- Freebie signup ---------- */
+  .signup {
+    max-width: 560px; margin: 0 auto; text-align: center;
+    background: var(--tint); border-radius: 20px; padding: 40px 34px;
+  }
+  .signup h2 { font-size: 1.7rem; margin-bottom: 10px; }
+  .signup p { color: var(--muted); margin-bottom: 22px; }
+  .signup form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .signup input {
+    flex: 1; min-width: 220px; padding: 13px 18px; border-radius: 999px;
+    border: 1px solid var(--border); font-size: 1rem; background: var(--surface); color: var(--ink);
+  }
+  .signup input:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+  /* ---------- Membership ---------- */
+  .pricing { max-width: 420px; margin: 0 auto; text-align: center; }
+  .price-card {
+    background: var(--surface); border: 2px solid var(--primary);
+    border-radius: 20px; padding: 40px 34px; box-shadow: 0 10px 30px rgba(0,0,0,.07);
+  }
+  .price { font-family: Georgia, serif; font-size: 3rem; color: var(--primary); }
+  .price span { font-size: 1rem; color: var(--muted); font-family: inherit; }
+  .perks { list-style: none; text-align: left; margin: 24px 0 28px; }
+  .perks li { padding: 8px 0 8px 28px; position: relative; font-size: .97rem; }
+  .perks li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  /* ---------- FAQ ---------- */
+  details {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+  summary { font-weight: 600; cursor: pointer; }
+  details p { margin-top: 10px; color: var(--muted); font-size: .95rem; }
+
+  footer { text-align: center; padding: 44px 24px; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--border); }
+
+  @media (max-width: 640px) {
+    .nav-links a:not(.btn) { display: none; }
+    header { padding: 56px 0 48px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top">Moms AI Club</a>
+    <div class="nav-links">
+      <a href="#why">Why AI</a>
+      <a href="#inside">What's Inside</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <!-- STRIPE: replace href below with your Stripe Payment Link -->
+      <a class="btn" href="https://buy.stripe.com/YOUR-PAYMENT-LINK">Join the Club</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="wrap">
+  <span class="eyebrow">A membership club for curious moms</span>
+  <h1>AI, explained <em>mom-to-mom</em></h1>
+  <p class="sub">No jargon. No hype. Just clear, friendly lessons on what AI can actually do for your family, your work, and your sanity — from a mom who uses it every day.</p>
+  <div class="hero-cta">
+    <!-- STRIPE: replace href below with your Stripe Payment Link -->
+    <a class="btn btn-big" href="https://buy.stripe.com/YOUR-PAYMENT-LINK">Become a Member</a>
+    <a class="btn btn-big btn-ghost" href="#inside">Peek Inside First</a>
+  </div>
+</header>
+
+<section id="why" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why learn AI now?</h2>
+      <p>AI isn't just for techies anymore. It's a household tool — and the moms who learn it first get hours of their week back.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Plain English, promise</h3>
+        <p>Every lesson is written the way you'd explain something to a friend over coffee. If a term needs a dictionary, we don't use it.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Real-life examples</h3>
+        <p>Meal planning, homework help, side hustles, going back to work — even connecting AI to your Gmail and calendar so you wake up to a daily briefing of your day. We show AI doing things that matter to your actual life.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Bite-sized &amp; at your pace</h3>
+        <p>Lessons take less time than a school pickup line. Learn during nap time, drive time, or whenever you get five quiet minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>A free sample: One brain, four doors</h2>
+      <p>Here's a taste of a member lesson — how Claude's products fit together, and which door to knock on for which task.</p>
+    </div>
+    <div class="doors">
+      <div class="door">
+        <h3>Claude app</h3>
+        <div class="tag">Your everyday chat</div>
+        <ul>
+          <li>Quick questions and brainstorms</li>
+          <li>Draft an email or a caption</li>
+          <li>Talk through a decision out loud</li>
+        </ul>
+      </div>
+      <div class="door">
+        <h3>Projects</h3>
+        <div class="tag">Topic workspaces with memory</div>
+        <ul>
+          <li>Keep one topic's files in one place</li>
+          <li>Every chat starts with full context</li>
+          <li>Its own "memory bubble"</li>
+        </ul>
+      </div>
+      <div class="door">
+        <h3>Claude Code</h3>
+        <div class="tag">Works in your code on your Mac</div>
+        <ul>
+          <li>Builds and edits real software</li>
+          <li>Connects to your GitHub</li>
+          <li>For when a project becomes an app</li>
+        </ul>
+      </div>
+      <div class="door">
+        <h3>Cowork</h3>
+        <div class="tag">Hands off whole jobs</div>
+        <ul>
+          <li>Turn a draft into a polished PDF</li>
+          <li>Research into a comparison doc</li>
+          <li>Batch-create weeks of content</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lesson-note"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg>Members get the full lesson library — with videos, cheat sheets, and copy-paste prompts for each one.</p>
+  </div>
+</section>
+
+<section id="about" class="alt">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo">
+        <!-- Save your headshot into this folder as kim.jpg -->
+        <img src="kim.jpg" alt="Kim, founder of Moms AI Club"
+             onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;aspect-ratio:4/5;border-radius:20px;background:var(--tint);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:4rem;color:var(--primary)&quot;>K</div>'">
+      </div>
+      <div class="about-text">
+        <h2>Hi, I'm Kim 👋</h2>
+        <p>I'm a mom who got curious about AI — and then couldn't stop talking about it. I use these tools every single day: for work, for family logistics, for the mental load nobody sees.</p>
+        <p>What I noticed is that almost everything written about AI is written for engineers. So I started Moms AI Club to be the resource I wished existed: plain English, real examples from real mom life, and zero judgment for asking "wait, what does that mean?"</p>
+        <p>If you can send a text, you can do this. Come learn with us.</p>
+        <p class="sig">— Kim</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="freebie">
+  <div class="wrap">
+    <div class="signup">
+      <h2>Not ready to join? Start free.</h2>
+      <p>Get my free cheat sheet — <strong>5 AI prompts every mom should try this week</strong> — plus one practical AI tip in your inbox each week.</p>
+      <!-- EMAIL: replace action below with your form URL (Formspree, Mailchimp, ConvertKit, etc.)
+           and I can wire it up — just tell Claude which email tool you use. -->
+      <form action="#" onsubmit="alert('Email signup isn\'t connected yet — this button will work once your email tool is linked.'); return false;">
+        <input type="email" required placeholder="Your email address">
+        <button class="btn" type="submit">Send My Cheat Sheet</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="membership" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Join the club</h2>
+      <p>One simple membership. Cancel anytime, no guilt trips.</p>
+    </div>
+    <div class="pricing">
+      <div class="price-card">
+        <div class="price">$9.99<span>/month</span></div>
+        <ul class="perks">
+          <li>Full library of plain-English AI lessons</li>
+          <li>New lessons and cheat sheets every week</li>
+          <li>Copy-paste prompts that just work</li>
+          <li>Members-only Q&amp;A — ask anything</li>
+          <li>Community of moms figuring it out together</li>
+        </ul>
+        <!-- STRIPE: replace href below with your Stripe Payment Link -->
+        <a class="btn btn-big" href="https://buy.stripe.com/YOUR-PAYMENT-LINK" style="width:100%">Start My Membership</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions moms ask</h2>
+    </div>
+    <details>
+      <summary>I'm not techy at all. Is this really for me?</summary>
+      <p>Especially for you. This club exists because most AI content is written for engineers. If you can send a text message, you can do everything we teach.</p>
+    </details>
+    <details>
+      <summary>How much time does it take?</summary>
+      <p>Most lessons take 5–10 minutes. There's no schedule and nothing expires — learn whenever life allows.</p>
+    </details>
+    <details>
+      <summary>Is AI safe to use around my kids' information?</summary>
+      <p>We cover this early and honestly — what to share, what not to share, and how to set up AI tools with privacy in mind.</p>
+    </details>
+    <details>
+      <summary>Can I cancel anytime?</summary>
+      <p>Yes — one click, no phone calls, no hard feelings. Your membership is managed securely through Stripe.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Moms AI Club</strong> — AI, explained mom-to-mom.</p>
+  <p>© 2026 Moms AI Club. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
