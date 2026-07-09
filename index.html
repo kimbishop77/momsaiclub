@@ -109,11 +109,7 @@
   .door li { font-size: .9rem; color: var(--muted); padding: 5px 0 5px 20px; position: relative; }
   .door li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
   .door:nth-child(even) { border-top-color: var(--accent); }
-  .door-start { position: relative; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-  .start-badge {
-    position: absolute; top: -12px; right: 16px; background: var(--accent);
-    color: var(--ink); font-size: .72rem; font-weight: 700; padding: 3px 12px; border-radius: 999px;
-  }
+  .try-prompt { color: var(--muted); font-size: .95rem; font-style: italic; }
 
   .starter-steps { max-width: 640px; margin: 0 auto 34px; }
   .starter-step {
@@ -256,44 +252,27 @@
       <div class="starter-step"><span class="step-badge">2</span> Type a question the way you'd text a friend. Try: <em>"I'm a busy mom who's never used AI. What are 5 ways you could actually help me this week?"</em></div>
       <div class="starter-step"><span class="step-badge">3</span> That's it. No manual, no settings. Just keep talking.</div>
     </div>
-    <p class="doors-intro">Once you're comfortable chatting, Claude has four "doors" — different ways in, for different jobs. Start at the first one; the rest can wait.</p>
+    <p class="doors-intro">So what do moms really use it for? Here are four real examples. Copy any of these into Claude and watch what happens:</p>
     <div class="doors">
-      <div class="door door-start">
-        <span class="start-badge">Start here</span>
-        <h3>Claude app</h3>
-        <div class="tag">Your everyday chat</div>
-        <ul>
-          <li>Ask anything, in plain English</li>
-          <li>Draft a tricky email or a caption</li>
-          <li>Plan a week of dinners in 2 minutes</li>
-        </ul>
+      <div class="door">
+        <h3>Dinner help</h3>
+        <div class="tag">Try saying:</div>
+        <p class="try-prompt">"What can I make with chicken, rice, and frozen broccoli in 30 minutes?"</p>
       </div>
       <div class="door">
-        <h3>Projects</h3>
-        <div class="tag">Topic workspaces with memory</div>
-        <ul>
-          <li>Keep one topic's files in one place</li>
-          <li>Every chat starts with full context</li>
-          <li>Its own "memory bubble"</li>
-        </ul>
+        <h3>School emails</h3>
+        <div class="tag">Try saying:</div>
+        <p class="try-prompt">"Read this long school email and tell me what I need to do, and by when."</p>
       </div>
       <div class="door">
-        <h3>Claude Code</h3>
-        <div class="tag">Works in your code on your Mac</div>
-        <ul>
-          <li>Builds and edits real software</li>
-          <li>Connects to your GitHub</li>
-          <li>For when a project becomes an app</li>
-        </ul>
+        <h3>Homework backup</h3>
+        <div class="tag">Try saying:</div>
+        <p class="try-prompt">"Explain fractions like I'm 9 years old."</p>
       </div>
       <div class="door">
-        <h3>Cowork</h3>
-        <div class="tag">Hands off whole jobs</div>
-        <ul>
-          <li>Turn a draft into a polished PDF</li>
-          <li>Research into a comparison doc</li>
-          <li>Batch-create weeks of content</li>
-        </ul>
+        <h3>Party planning</h3>
+        <div class="tag">Try saying:</div>
+        <p class="try-prompt">"Plan a superhero birthday party for a 7-year-old. Keep it under $100."</p>
       </div>
     </div>
     <p class="lesson-note"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg>Members get the full lesson library — with videos, cheat sheets, and copy-paste prompts for each one.</p>
