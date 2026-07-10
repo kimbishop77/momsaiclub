@@ -3,185 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Member Library — Moms AI Club</title>
+<title>Members — Moms AI Club</title>
 <meta name="robots" content="noindex">
 <style>
-  [data-theme="fresh"] {
-    --bg: #FAFCFC; --surface: #FFFFFF; --ink: #14343B; --muted: #55707A;
-    --primary: #0F8B8D; --primary-dark: #0B6D6F; --accent: #FFC94D;
-    --accent-tint: #FFF3D6; --tint: #E4F2F2; --border: #DCE8E8;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg); color: var(--ink); line-height: 1.6;
+    background: #FAFCFC; color: #14343B; display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; margin: 0; text-align: center; padding: 24px;
   }
-  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.25; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
-
-  nav { background: var(--surface); border-bottom: 1px solid var(--border); }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1060px; margin: 0 auto; }
-  .logo { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; color: var(--primary); text-decoration: none; }
-  .nav-inner a.back { color: var(--muted); text-decoration: none; font-size: .92rem; }
-  .nav-inner a.back:hover { color: var(--primary); }
-
-  header.lib { text-align: center; padding: 60px 0 40px; }
-  .eyebrow {
-    display: inline-block; background: var(--accent); color: var(--ink);
-    padding: 6px 16px; border-radius: 999px; font-size: .85rem; font-weight: 700; margin-bottom: 18px;
-  }
-  header.lib h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 12px; }
-  header.lib p { color: var(--muted); max-width: 560px; margin: 0 auto; }
-
-  .lesson-list { display: grid; gap: 16px; }
-  .lesson-card {
-    display: flex; align-items: center; gap: 20px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-    padding: 22px 24px;
-  }
-  .lesson-num {
-    flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px;
-    background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center;
-    font-family: Georgia, serif; font-size: 1.2rem; font-weight: bold;
-  }
-  .lesson-card:nth-child(even) .lesson-num { background: var(--accent); color: var(--ink); }
-  .lesson-info { flex: 1; }
-  .lesson-info h3 { font-size: 1.15rem; margin-bottom: 4px; }
-  .lesson-info h3 a { color: var(--ink); text-decoration: none; }
-  .lesson-info h3 a:hover { color: var(--primary); }
-  .lesson-info p { color: var(--muted); font-size: .92rem; }
-  .lesson-links { flex-shrink: 0; display: flex; gap: 8px; }
-  .mini-btn {
-    display: inline-block; text-decoration: none; font-size: .82rem; font-weight: 600;
-    padding: 7px 16px; border-radius: 999px;
-  }
-  .mini-btn.solid { background: var(--primary); color: #fff; }
-  .mini-btn.solid:hover { background: var(--primary-dark); }
-  .mini-btn.ghost { border: 1.5px solid var(--primary); color: var(--primary); }
-  .mini-btn.ghost:hover { background: var(--tint); }
-
-  .coming {
-    margin-top: 28px; text-align: center; background: var(--accent-tint);
-    border-radius: 14px; padding: 18px 22px; font-size: .95rem;
-  }
-
-  @media (max-width: 620px) {
-    .lesson-card { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .lesson-links { width: 100%; }
+  .card { max-width: 480px; }
+  h1 { font-family: Georgia, serif; color: #0F8B8D; font-size: 2rem; margin-bottom: 12px; }
+  p { color: #55707A; line-height: 1.6; margin-bottom: 12px; }
+  a.btn {
+    display: inline-block; background: #0F8B8D; color: #fff; text-decoration: none;
+    padding: 12px 28px; border-radius: 999px; font-weight: 600; margin-top: 10px;
   }
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="index.html">Moms AI Club</a>
-    <a class="back" href="index.html">← Back to home</a>
-  </div>
-</nav>
-
-<div class="wrap">
-
-<header class="lib">
-  <span class="eyebrow">Members Only</span>
-  <h1>Your Lesson Library</h1>
-  <p>Every lesson, in the order that builds your skills — each with copy-paste prompts and a printable PDF. New lesson every Monday. 💛</p>
-</header>
-
-<div class="lesson-list" style="grid-template-columns: 1fr 1fr; margin-bottom: 26px;">
-  <div class="lesson-card" style="border-top: 5px solid var(--accent);">
-    <div class="lesson-info">
-      <h3><a href="prompts.html">🗂️ The Prompt Vault</a></h3>
-      <p>Every copy-paste prompt from every lesson, organized by life moment. Grows every Monday.</p>
-    </div>
-    <div class="lesson-links"><a class="mini-btn solid" href="prompts.html">Open</a></div>
-  </div>
-  <div class="lesson-card" style="border-top: 5px solid var(--accent);">
-    <div class="lesson-info">
-      <h3><a href="roundup.html">📬 AI This Week, Mom Edition</a></h3>
-      <p>Three curated links each Monday with Kim's plain-English take — so you never have to keep up.</p>
-    </div>
-    <div class="lesson-links"><a class="mini-btn solid" href="roundup.html">Read</a></div>
-  </div>
+<div class="card">
+  <h1>This page has moved 💛</h1>
+  <p><strong>Members:</strong> your library link is in your welcome email — check your inbox (it's also where you landed right after joining). Can't find it? Email kimbishop77@gmail.com and Kim will send it over.</p>
+  <p><strong>Not a member yet?</strong> Come see what the club is about.</p>
+  <a class="btn" href="index.html">Visit Moms AI Club</a>
 </div>
-
-<div class="lesson-list">
-  <div class="lesson-card">
-    <div class="lesson-num">1</div>
-    <div class="lesson-info">
-      <h3><a href="lesson-first-10-minutes.html">Your First 10 Minutes with Claude</a></h3>
-      <p>Never used AI? Start here. Your first chat, plus the one skill that changes everything.</p>
-    </div>
-    <div class="lesson-links">
-      <a class="mini-btn solid" href="lesson-first-10-minutes.html">Read</a>
-      <a class="mini-btn ghost" href="lesson-first-10-minutes.pdf" download>PDF</a>
-    </div>
-  </div>
-
-  <div class="lesson-card">
-    <div class="lesson-num">2</div>
-    <div class="lesson-info">
-      <h3><a href="lesson-morning-briefing.html">Set Up Your AI Morning Briefing</a></h3>
-      <p>Connect your calendar and email so your day is summarized for you — before coffee.</p>
-    </div>
-    <div class="lesson-links">
-      <a class="mini-btn solid" href="lesson-morning-briefing.html">Read</a>
-      <a class="mini-btn ghost" href="lesson-morning-briefing.pdf" download>PDF</a>
-    </div>
-  </div>
-
-  <div class="lesson-card">
-    <div class="lesson-num">3</div>
-    <div class="lesson-info">
-      <h3><a href="lesson-dinner-autopilot.html">Dinner on Autopilot</a></h3>
-      <p>A week of dinners and one grocery list, planned in 5 minutes every Sunday.</p>
-    </div>
-    <div class="lesson-links">
-      <a class="mini-btn solid" href="lesson-dinner-autopilot.html">Read</a>
-      <a class="mini-btn ghost" href="lesson-dinner-autopilot.pdf" download>PDF</a>
-    </div>
-  </div>
-
-  <div class="lesson-card">
-    <div class="lesson-num">4</div>
-    <div class="lesson-info">
-      <h3><a href="lesson-mental-load-dump.html">The Mental Load Dump</a></h3>
-      <p>Empty everything in your head and let Claude sort it into a plan you can follow.</p>
-    </div>
-    <div class="lesson-links">
-      <a class="mini-btn solid" href="lesson-mental-load-dump.html">Read</a>
-      <a class="mini-btn ghost" href="lesson-mental-load-dump.pdf" download>PDF</a>
-    </div>
-  </div>
-
-  <div class="lesson-card">
-    <div class="lesson-num">5</div>
-    <div class="lesson-info">
-      <h3><a href="lesson-school-email-survival.html">School Email Survival</a></h3>
-      <p>Decode the 900-word PTA email, draft the reply, and read the backpack flyer — in seconds.</p>
-    </div>
-    <div class="lesson-links">
-      <a class="mini-btn solid" href="lesson-school-email-survival.html">Read</a>
-      <a class="mini-btn ghost" href="lesson-school-email-survival.pdf" download>PDF</a>
-    </div>
-  </div>
-
-  <div class="lesson-card">
-    <div class="lesson-num">6</div>
-    <div class="lesson-info">
-      <h3><a href="lesson-vacation-planner.html">The 15-Minute Vacation Planner</a></h3>
-      <p>A day-by-day trip plan around YOUR family, packing lists for everyone, and a leave-the-house checklist.</p>
-    </div>
-    <div class="lesson-links">
-      <a class="mini-btn solid" href="lesson-vacation-planner.html">Read</a>
-      <a class="mini-btn ghost" href="lesson-vacation-planner.pdf" download>PDF</a>
-    </div>
-  </div>
-</div>
-
-<div class="coming">📬 <strong>Next lesson lands Monday.</strong> Have a topic you want covered? Reply to any club email and tell Kim — member requests jump the line.</div>
-
-</div>
-
 </body>
 </html>
