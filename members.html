@@ -3,29 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Members — Moms AI Club</title>
+<title>Member Sign-In — Moms AI Club</title>
 <meta name="robots" content="noindex">
 <style>
+  * { box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #FAFCFC; color: #14343B; display: flex; align-items: center; justify-content: center;
-    min-height: 100vh; margin: 0; text-align: center; padding: 24px;
+    background: #0F8B8D; color: #14343B; display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; margin: 0; padding: 24px;
   }
-  .card { max-width: 480px; }
-  h1 { font-family: Georgia, serif; color: #0F8B8D; font-size: 2rem; margin-bottom: 12px; }
-  p { color: #55707A; line-height: 1.6; margin-bottom: 12px; }
-  a.btn {
-    display: inline-block; background: #0F8B8D; color: #fff; text-decoration: none;
-    padding: 12px 28px; border-radius: 999px; font-weight: 600; margin-top: 10px;
+  .card {
+    background: #FAFCFC; border-radius: 24px; padding: 44px 40px; max-width: 440px; width: 100%;
+    text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.25);
   }
+  .logo { font-family: Georgia, serif; font-weight: bold; color: #0F8B8D; font-size: 1.2rem; margin-bottom: 18px; }
+  h1 { font-family: Georgia, serif; font-size: 1.7rem; margin: 0 0 10px; }
+  p { color: #55707A; line-height: 1.55; font-size: .95rem; margin: 0 0 18px; }
+  input {
+    width: 100%; padding: 14px 18px; border-radius: 999px; border: 1.5px solid #DCE8E8;
+    font-size: 1rem; text-align: center; background: #fff; color: #14343B; outline: none;
+  }
+  input:focus { border-color: #0F8B8D; }
+  button {
+    width: 100%; margin-top: 12px; background: #0F8B8D; color: #fff; border: none;
+    padding: 14px; border-radius: 999px; font-size: 1rem; font-weight: 700; cursor: pointer;
+  }
+  button:hover { background: #0B6D6F; }
+  .err { color: #C0392B; font-size: .88rem; margin-top: 10px; display: none; }
+  .help { font-size: .85rem; color: #55707A; margin-top: 18px; }
+  .help a { color: #0F8B8D; font-weight: 600; }
+  .join { margin-top: 8px; font-size: .85rem; }
+  .join a { color: #0F8B8D; font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="card">
-  <h1>This page has moved 💛</h1>
-  <p><strong>Members:</strong> your library link is in your welcome email — check your inbox (it's also where you landed right after joining). Can't find it? Email kimbishop77@gmail.com and Kim will send it over.</p>
-  <p><strong>Not a member yet?</strong> Come see what the club is about.</p>
-  <a class="btn" href="index.html">Visit Moms AI Club</a>
+  <div class="logo">Moms AI Club</div>
+  <h1>Member sign-in 💛</h1>
+  <p>Enter the member passphrase from your welcome email.</p>
+  <form id="f">
+    <input type="password" id="pw" placeholder="Your passphrase" autocomplete="current-password" autofocus>
+    <button type="submit">Open My Library</button>
+  </form>
+  <div class="err" id="err">Hmm, that's not it — check your welcome email (it's case-insensitive).</div>
+  <div class="help">Lost your passphrase? Email <a href="mailto:kimbishop77@gmail.com">kimbishop77@gmail.com</a> and Kim will resend it.</div>
+  <div class="join">Not a member yet? <a href="index.html#membership">Join the club →</a></div>
 </div>
+<script>
+document.getElementById('f').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var v = document.getElementById('pw').value.trim().toLowerCase();
+  var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(v));
+  var hex = Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+  if (hex === '8e584b4d1de70f801a5efa9710a88f3e5bf4456d57efb1da2acdb090e6af8e7a') {
+    window.location.href = 'library-8kt3mq.html';
+  } else {
+    document.getElementById('err').style.display = 'block';
+  }
+});
+</script>
 </body>
 </html>
