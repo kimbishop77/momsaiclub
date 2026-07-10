@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="fresh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Vault — Moms AI Club</title>
+<style>
+  [data-theme="fresh"] {
+    --bg: #FAFCFC; --surface: #FFFFFF; --ink: #14343B; --muted: #55707A;
+    --primary: #0F8B8D; --primary-dark: #0B6D6F; --accent: #FFC94D;
+    --accent-tint: #FFF3D6; --tint: #E4F2F2; --border: #DCE8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.7;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.25; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+
+  nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1060px; margin: 0 auto; }
+  .logo { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+  .nav-inner a.back { color: var(--muted); text-decoration: none; font-size: .92rem; }
+  .nav-inner a.back:hover { color: var(--primary); }
+
+  .lesson-head { padding: 56px 0 10px; }
+  .lesson-tag {
+    display: inline-block; background: var(--accent); color: var(--ink);
+    padding: 5px 14px; border-radius: 999px; font-size: .8rem; font-weight: 700; margin-bottom: 16px;
+  }
+  .pdf-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-left: 10px;
+    color: var(--primary); text-decoration: none; font-size: .88rem; font-weight: 600;
+    border: 1.5px solid var(--primary); border-radius: 999px; padding: 4px 14px;
+    vertical-align: 2px;
+  }
+  .pdf-link:hover { background: var(--tint); }
+  .pdf-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin-bottom: 12px; }
+  .meta { color: var(--muted); font-size: .92rem; margin-bottom: 8px; }
+
+  h2 { font-size: 1.45rem; margin: 44px 0 12px; }
+  p { margin-bottom: 14px; }
+  .lede { font-size: 1.1rem; color: var(--muted); }
+
+  .step {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 26px; margin: 18px 0;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%; background: var(--primary);
+    color: #fff; font-weight: 700; font-size: .95rem; margin-right: 10px; vertical-align: middle;
+  }
+  .step h3 { display: inline; font-size: 1.15rem; vertical-align: middle; }
+  .step p { margin-top: 12px; }
+  .step p:last-child { margin-bottom: 0; }
+
+  .promptbox {
+    background: var(--ink); color: #EAF4F4; border-radius: 14px;
+    padding: 20px 22px; margin: 16px 0; font-size: .97rem; position: relative;
+  }
+  .promptbox .label {
+    position: absolute; top: -11px; left: 18px; background: var(--accent);
+    color: var(--ink); font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+  }
+  .copy-btn {
+    margin-top: 12px; background: var(--primary); color: #fff; border: none;
+    padding: 8px 18px; border-radius: 999px; font-size: .85rem; font-weight: 600; cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--primary-dark); }
+
+  .tipbox {
+    background: var(--accent-tint); border-radius: 12px; padding: 16px 20px;
+    margin: 16px 0; font-size: .95rem;
+  }
+  .tipbox strong { color: var(--primary-dark); }
+
+  ul { margin: 0 0 14px 22px; }
+  li { margin-bottom: 8px; }
+
+  .screenshot-slot {
+    border: 2px dashed var(--border); border-radius: 12px; padding: 30px;
+    text-align: center; color: var(--muted); font-size: .88rem; margin: 14px 0;
+    background: var(--surface);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Moms AI Club</a>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+
+<div class="lesson-head">
+  <span class="lesson-tag">Members Only · Always Growing</span>
+  <h1>The Prompt Vault</h1>
+  <p class="meta">Every copy-paste prompt from every lesson, in one place. Find your moment, copy, paste, done. New prompts land here every Monday.</p>
+</div>
+<h2>🌱 Getting Started</h2>
+<p style="margin:14px 0 6px"><strong>Your very first chat</strong> · <a href="lesson-first-10-minutes.html" style="color:var(--primary); font-size:.9rem">from: Your First 10 Minutes with Claude</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v1">Hi! I'm a mom and I've never used AI before. Ask me 3 quick questions about my life. Then tell me 5 ways you could actually help me this week.</span>
+  <br><button class="copy-btn" onclick="copyText('v1', this)">Copy prompt</button>
+</div>
+<h2>☀️ Your Morning</h2>
+<p style="margin:14px 0 6px"><strong>Test your morning briefing</strong> · <a href="lesson-morning-briefing.html" style="color:var(--primary); font-size:.9rem">from: Set Up Your AI Morning Briefing</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v2">Look at my calendar and my unread emails from the last 24 hours. Give me a short morning briefing: today's schedule, anything that needs a reply or action from me, and anything coming up tomorrow I should prep for. Keep it friendly and brief — like a helpful friend, not a report.</span>
+  <br><button class="copy-btn" onclick="copyText('v2', this)">Copy prompt</button>
+</div>
+<p style="margin:14px 0 6px"><strong>Make it automatic</strong> · <a href="lesson-morning-briefing.html" style="color:var(--primary); font-size:.9rem">from: Set Up Your AI Morning Briefing</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v3">That was great. Please run this exact briefing for me automatically every morning at 7:00am.</span>
+  <br><button class="copy-btn" onclick="copyText('v3', this)">Copy prompt</button>
+</div>
+<h2>🍽️ Dinner & Meals</h2>
+<p style="margin:14px 0 6px"><strong>The fridge dump</strong> · <a href="lesson-dinner-autopilot.html" style="color:var(--primary); font-size:.9rem">from: Dinner on Autopilot</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v4">Here's what I have: [list what's in your fridge and pantry — rough is fine]. Give me 3 dinner ideas I can make in under 30 minutes using mostly this. My kids are [ages].</span>
+  <br><button class="copy-btn" onclick="copyText('v4', this)">Copy prompt</button>
+</div>
+<p style="margin:14px 0 6px"><strong>The weekly plan + grocery list</strong> · <a href="lesson-dinner-autopilot.html" style="color:var(--primary); font-size:.9rem">from: Dinner on Autopilot</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v5">Plan 5 weeknight dinners for a family of 4. One kid won't eat anything spicy. We're busy Tuesday, so that night needs to be 15 minutes max. Keep it budget-friendly. Then make me ONE grocery list for the whole week, sorted by store section.</span>
+  <br><button class="copy-btn" onclick="copyText('v5', this)">Copy prompt</button>
+</div>
+<h2>🧠 The Mental Load</h2>
+<p style="margin:14px 0 6px"><strong>The brain dump</strong> · <a href="lesson-mental-load-dump.html" style="color:var(--primary); font-size:.9rem">from: The Mental Load Dump</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v6">I'm going to dump everything on my mind. Don't fix anything yet — just listen. When I'm done, sort everything into 4 lists: To-Do This Week, Can Wait, Needs a Decision, and Just Worries.</span>
+  <br><button class="copy-btn" onclick="copyText('v6', this)">Copy prompt</button>
+</div>
+<p style="margin:14px 0 6px"><strong>Turn it into a real week</strong> · <a href="lesson-mental-load-dump.html" style="color:var(--primary); font-size:.9rem">from: The Mental Load Dump</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v7">Take the To-Do This Week list and fit it into my actual week. Mornings are chaos. I have pockets of time at nap time and after 8pm. Be realistic — don't schedule 12 things in one day.</span>
+  <br><button class="copy-btn" onclick="copyText('v7', this)">Copy prompt</button>
+</div>
+<h2>🎒 School</h2>
+<p style="margin:14px 0 6px"><strong>The long-email decoder</strong> · <a href="lesson-school-email-survival.html" style="color:var(--primary); font-size:.9rem">from: School Email Survival</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v8">Here's an email from my kid's school. Tell me: 1) What do I actually need to DO? 2) By when? 3) Does it cost money? Short bullet points only. Email: [paste it here]</span>
+  <br><button class="copy-btn" onclick="copyText('v8', this)">Copy prompt</button>
+</div>
+<p style="margin:14px 0 6px"><strong>The reply you've been avoiding</strong> · <a href="lesson-school-email-survival.html" style="color:var(--primary); font-size:.9rem">from: School Email Survival</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v9">Draft a short, friendly reply to my kid's teacher saying [what you need to say — e.g., 'Emma will miss Friday for a family thing, what will she need to make up?']. Warm but brief — 3 sentences max.</span>
+  <br><button class="copy-btn" onclick="copyText('v9', this)">Copy prompt</button>
+</div>
+<h2>🧳 Trips & Travel</h2>
+<p style="margin:14px 0 6px"><strong>The day-by-day plan</strong> · <a href="lesson-vacation-planner.html" style="color:var(--primary); font-size:.9rem">from: The 15-Minute Vacation Planner</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v10">We're going to [destination] for [number] days with kids ages [ages]. Plan each day with one main activity in the morning and something low-key in the afternoon. We need a break after lunch, nothing too expensive, and at least one rainy-day backup idea. Keep the driving short.</span>
+  <br><button class="copy-btn" onclick="copyText('v10', this)">Copy prompt</button>
+</div>
+<p style="margin:14px 0 6px"><strong>Packing lists for everyone</strong> · <a href="lesson-vacation-planner.html" style="color:var(--primary); font-size:.9rem">from: The 15-Minute Vacation Planner</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v11">Make me a packing list for this trip, with a separate list for each person: me, [partner], and kids ages [ages]. Include the stuff parents forget — chargers, medicine, snacks for the car, one extra outfit per kid. Format it as checklists I can print.</span>
+  <br><button class="copy-btn" onclick="copyText('v11', this)">Copy prompt</button>
+</div>
+<p style="margin:14px 0 6px"><strong>The before-we-leave countdown</strong> · <a href="lesson-vacation-planner.html" style="color:var(--primary); font-size:.9rem">from: The 15-Minute Vacation Planner</a></p>
+<div class="promptbox">
+  <span class="label">COPY THIS PROMPT</span>
+  <span id="v12">We leave in [number] days. Give me a simple countdown checklist of things to handle before a family trip — like holding the mail, watering plants, emptying the fridge of things that will spoil, charging devices, and downloading movies for the car. Organize it by day.</span>
+  <br><button class="copy-btn" onclick="copyText('v12', this)">Copy prompt</button>
+</div>
+
+<p style="margin-top:44px"><a href="members.html" style="color:var(--primary); font-weight:600">← Back to the Member Library</a></p>
+</div>
+
+<script>
+  function copyText(id, btn) {
+    navigator.clipboard.writeText(document.getElementById(id).innerText).then(function() {
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = "Copy prompt"; }, 1600);
+    });
+  }
+</script>
+
+</body>
+</html>
